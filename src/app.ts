@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-// import userRoutes from './routes/user.routes';
+import userRoutes from "./routes/user.routes";
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-// app.use('/api/users', userRoutes);
+app.use("/api/users", userRoutes);
 
 // Catch all route (Optional)
 app.get("*", (req: any, res: any) => {
