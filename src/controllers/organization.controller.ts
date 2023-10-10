@@ -34,6 +34,7 @@ export const getOrganizationById = async (
     .select("*")
     .eq("id", id)
     .single();
+
   if (error) return res.status(500).json({ error: error.message });
   if (!data) return res.status(404).json({ error: "Organization not found" });
   res.json(data);
@@ -67,6 +68,7 @@ export const updateOrganization = async (
     .from("organizations")
     .update(updatedData)
     .eq("id", id);
+
   if (error) return res.status(500).json({ error: error.message });
   res.json(data);
 };
